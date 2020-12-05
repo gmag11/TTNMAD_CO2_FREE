@@ -599,10 +599,10 @@ void handle_input(char c) {
         input[1] = ' ';
         compensacion = strtoul(input, &ptr, 10);
         Serial.println(compensacion);
-        if (! airSensor.setForceRecalibration(compensacion)) {
+        if (! airSensor.setAltitudeCompensation(compensacion)) {
           Serial.println(F("No se ha podido configurar la compensación de altitud"));
         } else {
-          airSensor.getForceRecalibration(&compensacion);
+          airSensor.getAltitudeCompensation(&compensacion);
           Serial.print(F("Nueva compensación de altitud [m]: "));
           Serial.println(compensacion);
         }
